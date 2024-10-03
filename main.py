@@ -2,8 +2,8 @@ from telegram import Update, Poll
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes, CallbackContext
 from typing import Final
 
-TOKEN: Final = "7858981179:AAF9dZfO0kFpxwySs1eERc1kDBkS688cnEI"
-BOT_USERNAME: Final = "@QuestionPoll_bot"
+TOKEN: Final = "8062849575:AAGFAksPKDe3r-sW3tdZfY8di7hsDrq35fg"
+BOT_USERNAME: Final = "@QuestionPoll2_bot"
 
 
 # Commands
@@ -48,8 +48,8 @@ async def create_poll(update: Update, context: ContextTypes.DEFAULT_TYPE, text: 
     question = question_and_answers[0]
 
     # The answers are all lines except the last one (which is the correct answer)
-    answers = question_and_answers[1:-2]
-
+    # answers = question_and_answers[1:-2]
+    answers = [answer.strip() for answer in question_and_answers[1: -2]]
 
     # The correct answer is the last line
     correct_answer = question_and_answers[-2].strip()
@@ -65,7 +65,7 @@ async def create_poll(update: Update, context: ContextTypes.DEFAULT_TYPE, text: 
     # Get the index of the correct answer
     correct_answer_index = answers.index(correct_answer)
 
-    if explanation.lower() == 'no explanation':
+    if 'no explanation' in explanation.lower():
         await update.message.reply_poll(
             question=question,
             options=answers,
