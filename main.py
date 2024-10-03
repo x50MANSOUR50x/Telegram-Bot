@@ -2,8 +2,8 @@ from telegram import Update, Poll
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes, CallbackContext
 from typing import Final
 
-TOKEN: Final = "8062849575:AAGFAksPKDe3r-sW3tdZfY8di7hsDrq35fg"
-BOT_USERNAME: Final = "@QuestionPoll2_bot"
+TOKEN: Final = "7858981179:AAF9dZfO0kFpxwySs1eERc1kDBkS688cnEI"
+BOT_USERNAME: Final = "@QuestionPoll_bot"
 
 
 # Commands
